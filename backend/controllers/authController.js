@@ -1,4 +1,5 @@
 const { login, refresh } = require("../services/authService");
+const { registerFailedLoginAttempt, clearLoginAttempts } = require("../middleware/authSecurity");
 
 async function loginController(req, res, next) {
   try {
@@ -6,8 +7,18 @@ async function loginController(req, res, next) {
     const result = await login(email, password);
 
     if (!result) {
+      const lockInfo = registerFailedLoginAttempt(req, email);
+      if (lockInfo.blocked) {
+        res.set("Retry-After", String(lockInfo.retryAfterSeconds));
+        return res.status(429).json({
+          error: "Login temporariamente bloqueado por excesso de tentativas.",
+          retryAfterSeconds: lockInfo.retryAfterSeconds
+        });
+      }
       return res.status(401).json({ error: "Credenciais invalidas" });
     }
+
+    clearLoginAttempts(req, email);
 
     return res.status(200).json(result);
   } catch (error) {
