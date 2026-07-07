@@ -37,9 +37,11 @@ Oferecer uma plataforma segura, moderna e intuitiva para controle de acesso de r
 ## Tecnologias
 - Flutter.
 - Node.js + Express.
-- PostgreSQL.
+- PostgreSQL (Supabase).
 - ESP32.
 - JWT.
+- bcrypt.
+- GitHub Actions (CI/CD).
 - OpenCV + YOLO + EasyOCR (fase futura).
 - Docker (fase futura).
 
@@ -93,6 +95,15 @@ Madu-Gate/
   database/
     migrations/
     scripts/
+    schema.sql
+    seed.sql
+  assets/
+    images/
+    icons/
+    logo/
+  logo/
+  .github/
+    workflows/
   supabase/
     migrations/
   docs/
@@ -105,6 +116,7 @@ Madu-Gate/
   project.md
   architecture.md
   CHANGELOG.md
+  LICENSE
   README.md
 ```
 
