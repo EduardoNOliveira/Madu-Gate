@@ -67,10 +67,10 @@ Oferecer uma plataforma segura, moderna e intuitiva para controle de acesso de r
 - Tokens com expiracao.
 
 ## Identidade Visual
-- Azul escuro: #0F172A (confianca e tecnologia).
-- Azul claro: #2563EB (inovacao).
+- Azul Madu Primario: #44469B.
+- Azul Madu Secundario: #1AA6DE.
 - Branco: #FFFFFF (simplicidade).
-- Icone conceitual: portao + sinal de conexao + cadeado.
+- Referencia de marca: `docs/brand-guidelines.md`.
 
 ## Repositorio Oficial
 - https://github.com/EduardoNOliveira/Madu-Gate

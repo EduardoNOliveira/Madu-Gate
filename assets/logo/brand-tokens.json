@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": "Madu Informatica",
+    "product": "Madu Gate"
+  },
+  "colors": {
+    "primary": "#44469B",
+    "secondary": "#1AA6DE",
+    "white": "#FFFFFF"
+  },
+  "logo": {
+    "main": "assets/logo/madu-informatica-logo.png",
+    "notes": "Adicione o arquivo PNG oficial neste caminho para uso em docs e materiais."
+  }
+}
