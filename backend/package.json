@@ -1,0 +1,30 @@
+{
+  "name": "madu-gate-backend",
+  "version": "0.1.0",
+  "description": "API do Madu Gate para controle inteligente de acesso",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "env:setup": "powershell -ExecutionPolicy Bypass -File scripts/setupEnv.ps1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "db:migrate": "node scripts/runMigration.js",
+    "db:migrate:002": "node scripts/runMigration002.js",
+    "db:setup": "npm run db:migrate && npm run db:migrate:002",
+    "db:seed:admin": "node scripts/seedAdmin.js",
+    "db:bootstrap": "node scripts/bootstrap.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

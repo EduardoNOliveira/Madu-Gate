@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: madu_gate_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: madugate
+    ports:
+      - "5432:5432"
+    volumes:
+      - madu_gate_pgdata:/var/lib/postgresql/data
+
+  backend:
+    image: node:22-alpine
+    container_name: madu_gate_backend
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    working_dir: /app/backend
+    command: sh -c "npm install && npm run db:setup && npm run start"
+    env_file:
+      - ./backend/.env.docker
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+
+volumes:
+  madu_gate_pgdata:
