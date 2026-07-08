@@ -27,4 +27,7 @@ jobs:
         run: npm ci
 
       - name: Smoke load app
-        run: node -e "require('./api/app'); console.log('backend app loaded')"
+        env:
+          DATABASE_URL: postgresql://ci:ci@127.0.0.1:5432/madu_gate
+          DB_SSL: "false"
+        run: node -e "require('./src/api/app'); console.log('backend app loaded')"
