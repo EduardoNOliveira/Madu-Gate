@@ -1,7 +1,7 @@
 require("dotenv").config();
 
-const app = require("./api/app");
-const { testConnection } = require("./config/db");
+const app = require("./src/api/app");
+const { testConnection } = require("./src/config/db");
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +14,6 @@ async function bootstrap() {
 }
 
 bootstrap().catch((error) => {
-  console.error("Falha ao inicializar API:", error.message);
+  console.error("Falha ao inicializar API:", error);
   process.exit(1);
 });

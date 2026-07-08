@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const bcrypt = require("bcrypt");
-const { pool } = require("../config/db");
+const { pool } = require("../src/config/db");
 
 async function run() {
   const adminName = process.env.ADMIN_NAME || "Administrador";

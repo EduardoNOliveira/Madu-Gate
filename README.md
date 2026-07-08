@@ -78,25 +78,37 @@ Oferecer uma plataforma segura, moderna e intuitiva para controle de acesso de r
 ## Estrutura de Pastas
 ```text
 Madu-Gate/
-  app/
+  mobile/
     android/
     ios/
     lib/
     assets/
   backend/
-    api/
-    controllers/
-    middleware/
-    routes/
-    services/
+    src/
+      api/
+      config/
+      controllers/
+      middlewares/
+      models/
+      repositories/
+      routes/
+      services/
+      utils/
+    scripts/
+    server.js
   esp32/
     firmware/
-    ota/
+      OTA/
   database/
     migrations/
     scripts/
     schema.sql
     seed.sql
+    erd.png
+  design/
+    ui/
+      wireframes/
+        figma/
   assets/
     images/
     icons/
@@ -107,6 +119,9 @@ Madu-Gate/
   supabase/
     migrations/
   docs/
+    API.md
+    ESP32.md
+    INSTALL.md
   specs/
     000-madu-gate-foundation/
       spec.md
@@ -164,8 +179,8 @@ Madu-Gate/
 - Comando esperado: `docker compose up -d` (se Docker estiver instalado).
 
 ### App Flutter
-1. Em `app/`, execute `puro flutter pub get`.
-2. Inicie com `puro flutter run`.
+1. Em `mobile/`, execute `flutter pub get`.
+2. Inicie com `flutter run`.
 3. O app usa `http://10.0.2.2:3000` como URL base para Android emulator.
 
 ## Endpoints Principais (V1)
